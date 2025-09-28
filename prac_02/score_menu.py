@@ -29,6 +29,7 @@ def main():
         elif choice == "S":
             for character in range(score):
                 print("*", end="")
+            print()
         else:
             print("That is not an option")
         print(MENU)
