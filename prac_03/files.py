@@ -8,3 +8,10 @@ out_file.close()
 in_file = open("name.txt", "r")
 print(f"Hi {in_file.read(len(name))}!")
 in_file.close()
+
+# 3.
+with open("numbers.txt", "r") as in_file:
+    first_number = int(in_file.readline())
+    second_number = int(in_file.readline())
+    result = first_number + second_number
+    print(result)
