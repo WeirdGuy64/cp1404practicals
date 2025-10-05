@@ -8,16 +8,17 @@ Answer the following questions:
 Answers:
 1. When the numerator or the denominator inputs are not integers
 2. When the denominator input is 0
-3. You could add an if statement that detects if the user inputs 0 and stop the calculation if an input of 0 is detected, but I think it would quicker and easier to just use exceptions
+3. You could add a while statement that detects if the user inputs 0 and make the user input the denominator again if it detects a 0
 """
 
 try:
     numerator = int(input("Enter the numerator: "))
     denominator = int(input("Enter the denominator: "))
+    while denominator == 0:
+        print("Cannot divide by zero!")
+        denominator = int(input("Enter the denominator: "))
     fraction = numerator / denominator
     print(fraction)
 except ValueError:
     print("Numerator and denominator must be valid numbers!")
-except ZeroDivisionError:
-    print("Cannot divide by zero!")
 print("Finished.")
