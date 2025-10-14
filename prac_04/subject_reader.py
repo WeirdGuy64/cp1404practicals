@@ -13,6 +13,7 @@ def main():
 
 def load_data(filename=FILENAME):
     """Read data from file formatted like: subject,lecturer,number of students."""
+    lists = []
     input_file = open(filename)
     for line in input_file:
         print(line)  # See what a line looks like
@@ -22,8 +23,10 @@ def load_data(filename=FILENAME):
         print(parts)  # See what the parts look like (notice the integer is a string)
         parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
         print(parts)  # See if that worked
+        lists.append(parts)
         print("----------")
     input_file.close()
+    return lists
 
 
 main()
