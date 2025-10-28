@@ -7,33 +7,33 @@ FILENAME = "subject_data.txt"
 
 
 def main():
-    data = load_data(FILENAME)
-    print(data)
-    display_subject_details(data)
+    subject_data = load_subject_data(FILENAME)
+    print(subject_data)
+    display_subject_details(subject_data)
 
 
-def display_subject_details(data):
-    max_lecturer_name_length = max(len(element[1]) for element in data)
-    for element in data:
-        print(f"{element[0]} is taught by {element[1]:<{max_lecturer_name_length}} and has {element[2]:>3} students")
+def display_subject_details(subject_data):
+    max_lecturer_name_length = max(len(subject[1]) for subject in subject_data)
+    for subject in subject_data:
+        print(f"{subject[0]} is taught by {subject[1]:<{max_lecturer_name_length}} and has {subject[2]:>3} students")
 
 
-def load_data(filename=FILENAME):
+def load_subject_data(filename=FILENAME):
     """Read data from file formatted like: subject,lecturer,number of students."""
-    lists = []
+    subjects = []
     input_file = open(filename)
     for line in input_file:
         print(line)  # See what a line looks like
         print(repr(line))  # See what a line really looks like
         line = line.strip()  # Remove the \n
-        parts = line.split(',')  # Separate the data into its parts
-        print(parts)  # See what the parts look like (notice the integer is a string)
-        parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
-        print(parts)  # See if that worked
-        lists.append(parts)
+        subject_parts = line.split(',')  # Separate the data into its parts
+        print(subject_parts)  # See what the parts look like (notice the integer is a string)
+        subject_parts[2] = int(subject_parts[2])  # Make the number an integer (ignore PyCharm's warning)
+        print(subject_parts)  # See if that worked
+        subjects.append(subject_parts)
         print("----------")
     input_file.close()
-    return lists
+    return subjects
 
 
 main()
