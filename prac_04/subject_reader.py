@@ -9,6 +9,13 @@ FILENAME = "subject_data.txt"
 def main():
     data = load_data(FILENAME)
     print(data)
+    display_subject_details(data)
+
+
+def display_subject_details(data):
+    max_lecturer_name_length = max(len(element[1]) for element in data)
+    for element in data:
+        print(f"{element[0]} is taught by {element[1]:<{max_lecturer_name_length}} and has {element[2]:>3} students")
 
 
 def load_data(filename=FILENAME):
